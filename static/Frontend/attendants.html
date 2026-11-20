@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendants — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/attendants.js" defer></script>
+</head>
+<body data-role="Owner">
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Attendant accounts</h1>
+      <div class="two-columns">
+      <section>
+        <h2>Create account</h2>
+        <form id="attendant-form">
+          <label for="att-name">Full name</label>
+          <input type="text" id="att-name" name="name" maxlength="100" required>
+
+          <label for="att-phone">Phone</label>
+          <input type="tel" id="att-phone" name="phone" maxlength="15">
+
+          <label for="att-username">Username</label>
+          <input type="text" id="att-username" name="username" maxlength="50" autocomplete="off" required>
+
+          <label for="att-password">Temporary password (8 or more characters)</label>
+          <input type="text" id="att-password" name="password" minlength="8" autocomplete="off" required>
+
+          <button type="submit">Create account</button>
+          <p id="att-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Attendants</h2>
+        <p id="list-message" class="message" aria-live="polite"></p>
+        <div class="table-scroll">
+          <table>
+            <caption>Attendant accounts</caption>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Username</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="attendants-body"></tbody>
+          </table>
+        </div>
+      </section>
+      </div>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>A deactivated attendant cannot log in. Their sales history is kept.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

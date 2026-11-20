@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/sales.js" defer></script>
+</head>
+<body>
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Sales</h1>
+      <div class="two-columns attendant-only">
+      <section>
+        <h2>New sale</h2>
+        <form id="sale-form">
+          <label for="sale-product">Product</label>
+          <select id="sale-product" name="product"></select>
+
+          <label for="sale-qty">Quantity</label>
+          <input type="number" id="sale-qty" name="quantity" min="1" step="1" value="1">
+
+          <button type="submit">Add to sale</button>
+          <p id="sale-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Items in this sale</h2>
+        <ul id="basket" class="basket"></ul>
+        <p>Total: <strong id="basket-total">Ksh 0</strong></p>
+        <button id="save-sale" type="button">Save sale</button>
+      </section>
+      </div>
+
+      <section>
+        <h2>Recent sales</h2>
+        <p id="sales-message" class="message" aria-live="polite"></p>
+        <div class="table-scroll">
+          <table>
+            <caption>Sales recorded, newest first</caption>
+            <thead>
+              <tr>
+                <th scope="col">Sale</th>
+                <th scope="col">Time</th>
+                <th scope="col">Items</th>
+                <th scope="col" class="num">Total</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="owner-only">Action</th>
+              </tr>
+            </thead>
+            <tbody id="sales-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>You cannot sell more than the stock held.</li>
+        <li class="owner-only">Cancelling a sale puts its items back into stock.</li>
+        <li class="attendant-only">You see the sales you recorded.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

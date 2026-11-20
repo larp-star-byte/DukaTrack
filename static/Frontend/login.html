@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/login.js" defer></script>
+</head>
+<body id="login-page">
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Know what to stock before it runs out</span></div>
+      <div class="who"><a class="button" href="login.html">Log in</a></div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Log in</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="login-card">
+        <h1>Log in</h1>
+        <form id="login-form">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" autocomplete="username" required>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+          <button type="submit">Log in</button>
+          <p id="login-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notices</h2>
+      <ul>
+        <li>The Shop Owner and the Shop Attendant log in here.</li>
+        <li>An account is locked for 15 minutes after 5 wrong tries.</li>
+        <li>A session ends after 15 minutes without activity.</li>
+        <li>New attendants get an account from the Shop Owner.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

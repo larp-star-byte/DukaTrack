@@ -1,0 +1,428 @@
+/* DukaTrack style sheet.
+   Same layout idea as the class site: header, nav, main, aside and footer
+   placed with CSS grid. */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: #f6f7f9;
+    color: #1f2a37;
+    line-height: 1.5;
+    font-family: "Segoe UI", system-ui, Roboto, Arial, sans-serif;
+}
+
+h1{
+    font-size: 1.4rem;
+    margin: 0.2rem 0 1rem 0;
+}
+h2{
+    font-size: 1.05rem;
+    margin: 0 0 0.7rem 0;
+}
+h3{
+    font-size: 1rem;
+    margin: 0 0 0.4rem 0;
+}
+a{
+    color: #0f766e;
+}
+
+/* ---------- header: logo on the left, who is logged in on the right ---------- */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+.logo{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background: #0f766e;
+    color: #ffffff;
+    font-weight: 800;
+}
+.shop{
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+.who{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+}
+.pill{
+    padding: 0.1rem 0.6rem;
+    border-radius: 99px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+.pill.Owner{
+    background: #d9f2ee;
+    color: #0b5a54;
+}
+.pill.Attendant{
+    background: #fdebd0;
+    color: #b45309;
+}
+
+/* ---------- nav bar: a flex row of links ---------- */
+nav{
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 1rem;
+    margin: 0;
+    gap: 0.25rem 0.5rem;
+}
+nav a{
+    display: block;
+    padding: 0.75rem 0.9rem;
+    color: #6b7280;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+nav a:hover{
+    color: #0b5a54;
+}
+nav a.current{
+    color: #0b5a54;
+    border-bottom-color: #0f766e;
+}
+
+/* ---------- page layout with grid ---------- */
+body{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    grid-template-areas:
+    "header header"
+    "nav nav"
+    "main aside"
+    "footer footer";
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+header{grid-area: header;}
+nav{grid-area: nav;}
+main{grid-area: main;}
+aside{grid-area: aside;}
+footer{grid-area: footer;}
+
+header, main, aside, footer{
+    padding: 1rem;
+}
+main{
+    max-width: 62rem;
+}
+
+/* the notes box on the right */
+aside{
+    margin: 1rem 1rem 1rem 0;
+    padding: 1rem 1.2rem;
+    align-self: start;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #f0b429;
+    border-radius: 0.8rem;
+    font-size: 0.9rem;
+}
+aside ul{
+    padding-left: 1.1rem;
+    margin: 0;
+}
+
+footer{
+    border-top: 3px solid #f0b429;
+    background: #ffffff;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+footer p{
+    margin: 0.2rem 0;
+}
+
+/* ---------- sections look like cards ---------- */
+section{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.8rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+}
+.two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+    align-items: start;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.cards li{
+    flex: 1 1 12rem;
+    background: #f6f7f9;
+    border-top: 4px solid #0f766e;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+}
+.cards p{
+    margin: 0;
+}
+
+/* ---------- forms ---------- */
+label{
+    display: block;
+    margin-top: 0.8rem;
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+input, select{
+    display: block;
+    width: 100%;
+    max-width: 26rem;
+    min-height: 2.6rem;
+    padding: 0.5rem 0.7rem;
+    font: inherit;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    background: #ffffff;
+}
+input:focus, select:focus, button:focus-visible{
+    outline: 2px solid #0f766e;
+    outline-offset: 1px;
+}
+button, .button{
+    display: inline-block;
+    margin-top: 0.9rem;
+    padding: 0.55rem 1.1rem;
+    min-height: 2.6rem;
+    font: inherit;
+    font-weight: 600;
+    color: #ffffff;
+    background: #0f766e;
+    border: 1px solid #0f766e;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+button:hover, .button:hover{
+    background: #0b5a54;
+}
+button.plain{
+    color: #1f2a37;
+    background: #ffffff;
+    border-color: #e5e7eb;
+}
+button.plain:hover{
+    background: #f3f4f6;
+}
+button.ghost{
+    margin-top: 0;
+    color: #1f2a37;
+    background: transparent;
+    border-color: transparent;
+}
+button.ghost:hover{
+    background: #f3f4f6;
+}
+button.danger{
+    color: #b91c1c;
+    background: #ffffff;
+    border-color: #fecaca;
+}
+button.danger:hover{
+    background: #fee2e2;
+}
+button.small{
+    margin-top: 0;
+    min-height: 2.1rem;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.85rem;
+}
+button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* messages under forms: green when good, red when bad */
+.message{
+    margin: 0.8rem 0 0 0;
+    font-weight: 600;
+    color: #15803d;
+}
+.message:empty{
+    display: none;
+}
+.message.bad{
+    color: #b91c1c;
+}
+.banner{
+    padding: 0.7rem 1rem;
+    border-radius: 0.6rem;
+    background: #dcfce7;
+    color: #15803d;
+    font-weight: 600;
+}
+.banner.bad{
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ---------- tables ---------- */
+.table-scroll{
+    overflow-x: auto;
+}
+table{
+    width: 100%;
+    min-width: 30rem;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+caption{
+    text-align: left;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    color: #6b7280;
+}
+th, td{
+    padding: 0.55rem 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+th{
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #6b7280;
+    background: #fafafa;
+}
+tfoot th, tfoot td{
+    font-weight: 700;
+    color: #1f2a37;
+}
+.num{
+    text-align: right;
+    white-space: nowrap;
+}
+td input{
+    display: inline-block;
+    width: 5rem;
+    min-height: 2.1rem;
+    padding: 0.2rem 0.4rem;
+    margin-right: 0.3rem;
+}
+td button{
+    margin-right: 0.3rem;
+}
+
+/* status badges */
+.badge{
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 99px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.badge.ok{ background: #dcfce7; color: #15803d; }
+.badge.warn{ background: #fdebd0; color: #b45309; }
+.badge.low{ background: #fee2e2; color: #b91c1c; }
+.badge.off{ background: #e5e7eb; color: #6b7280; }
+
+.basket{
+    padding-left: 0;
+    list-style: none;
+}
+.basket li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed #e5e7eb;
+}
+.spark{
+    vertical-align: middle;
+}
+
+/* ---------- login page ---------- */
+#login-page main{
+    background: linear-gradient(160deg, #d9f2ee, #ffffff);
+    max-width: none;
+}
+.login-card{
+    max-width: 24rem;
+    margin: 2rem auto;
+    padding: 1.6rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.login-card input{
+    max-width: none;
+}
+
+/* ---------- phone layout: one column ---------- */
+@media (max-width: 600px){
+    body{
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+        grid-template-rows: auto;
+    }
+    nav{
+        position: static;
+        overflow-x: auto;
+    }
+    nav ul{
+        flex-wrap: nowrap;
+    }
+    nav a{
+        white-space: nowrap;
+    }
+    aside{
+        margin: 0 1rem 1rem 1rem;
+    }
+    .two-columns{
+        grid-template-columns: 1fr;
+    }
+    .hide-small{
+        display: none;
+    }
+}
+
+[hidden]{
+    display: none !important;
+}

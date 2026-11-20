@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/forecast.js" defer></script>
+</head>
+<body>
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Forecast</h1>
+      <section>
+        <label for="period">Forecast period</label>
+        <select id="period" name="period">
+          <option value="7">Next 7 days</option>
+          <option value="30">Next 30 days</option>
+        </select>
+
+        <div class="owner-only">
+          <label for="product">Product</label>
+          <select id="product" name="product">
+            <option value="">All products</option>
+          </select>
+          <button id="run" type="button">Generate forecast</button>
+        </div>
+        <p id="forecast-message" class="message" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <div class="table-scroll">
+          <table>
+            <caption>Predicted demand compared with the stock now</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col" class="hide-small">Last 28 days</th>
+                <th scope="col" class="num">Predicted demand</th>
+                <th scope="col" class="num">Stock now</th>
+                <th scope="col">Check</th>
+              </tr>
+            </thead>
+            <tbody id="forecast-body"></tbody>
+          </table>
+        </div>
+        <p id="forecast-note"></p>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>The forecast learns from the shop's own sales history.</li>
+        <li>Short by means the stock now is less than the predicted demand.</li>
+        <li class="owner-only">Generate a new forecast whenever you plan to reorder.</li>
+        <li class="attendant-only">View only. The Shop Owner generates the forecast.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

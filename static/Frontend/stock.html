@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock levels — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/stock.js" defer></script>
+</head>
+<body>
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Stock levels</h1>
+      <section>
+        <p id="stock-message" class="message" aria-live="polite"></p>
+        <div class="table-scroll">
+          <table>
+            <caption>Stock held for every active product</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Category</th>
+                <th scope="col" class="num">In stock</th>
+                <th scope="col" class="num">Reorder level</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="stock-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="owner-only">
+        <h2>Low-stock list</h2>
+        <div class="table-scroll">
+          <table>
+            <caption>Products at or below the reorder level</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col" class="num">In stock</th>
+                <th scope="col" class="num">Reorder level</th>
+              </tr>
+            </thead>
+            <tbody id="low-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>Low means the stock is at or below the reorder level.</li>
+        <li>This screen is read-only.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

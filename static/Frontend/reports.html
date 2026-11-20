@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/reports.js" defer></script>
+</head>
+<body data-role="Owner">
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Reports</h1>
+      <section>
+        <label for="report-period">Period</label>
+        <select id="report-period" name="period">
+          <option value="day">Today</option>
+          <option value="week" selected>Last 7 days</option>
+          <option value="month">Last 30 days</option>
+        </select>
+        <a id="csv-link" class="button" href="/api/reports/sales.csv?period=week" download>Export CSV</a>
+        <p id="report-message" class="message" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <h2 id="report-title">Sales report</h2>
+        <div class="table-scroll">
+          <table>
+            <caption>Completed sales by product</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col" class="num">Units sold</th>
+                <th scope="col" class="num">Sales (Ksh)</th>
+              </tr>
+            </thead>
+            <tbody id="report-body"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">Total</th>
+                <td id="total-units" class="num"></td>
+                <td id="total-revenue" class="num"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Forecast accuracy</h2>
+        <div class="table-scroll">
+          <table>
+            <caption>Predicted demand against actual sales</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col" class="num">Forecasts checked</th>
+                <th scope="col" class="num">Avg predicted</th>
+                <th scope="col" class="num">Avg actual</th>
+                <th scope="col" class="num">Mean absolute error</th>
+              </tr>
+            </thead>
+            <tbody id="accuracy-body"></tbody>
+          </table>
+        </div>
+        <p>Only forecasts whose period has finished are checked. A smaller error means a better forecast.</p>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>Export CSV downloads the sales table you see.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

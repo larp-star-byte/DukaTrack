@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/backup.js" defer></script>
+</head>
+<body data-role="Owner">
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Back up data</h1>
+      <section>
+        <h2>Back up now</h2>
+        <p>Copies all records into a protected backup file and saves a log of it.</p>
+        <button id="backup-button" type="button">Back up now</button>
+        <p id="backup-message" class="message" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <h2>Backup log</h2>
+        <div class="table-scroll">
+          <table>
+            <caption>Backups taken</caption>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Done by</th>
+                <th scope="col">File</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="backup-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>Backup files are kept outside the web folder.</li>
+        <li>Restore with restore.py (see the README).</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>

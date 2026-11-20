@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products — DukaTrack</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/products.js" defer></script>
+</head>
+<body data-role="Owner">
+
+    <header>
+      <div class="brand"><span class="logo">D</span> DukaTrack <span class="shop">Wanjiru's Duka</span></div>
+      <div class="who">
+        <span id="who-name"></span>
+        <span id="who-role" class="pill"></span>
+        <button id="logout" type="button" class="ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="stock.html">Stock levels</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li class="owner-only"><a href="goods.html">Enter goods</a></li>
+        <li class="owner-only"><a href="products.html">Products</a></li>
+        <li class="owner-only"><a href="reports.html">Reports</a></li>
+        <li class="owner-only"><a href="attendants.html">Attendants</a></li>
+        <li class="owner-only"><a href="backup.html">Backup</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Products and categories</h1>
+      <div class="two-columns">
+      <section>
+        <h2>Add category</h2>
+        <form id="category-form">
+          <label for="category-name">Category name</label>
+          <input type="text" id="category-name" name="name" maxlength="60" required>
+          <button type="submit">Add category</button>
+          <p id="category-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Add product</h2>
+        <form id="product-form">
+          <label for="product-name">Name</label>
+          <input type="text" id="product-name" name="name" maxlength="100" required>
+
+          <label for="product-category">Category</label>
+          <select id="product-category" name="category" required></select>
+
+          <label for="product-price">Unit price (Ksh)</label>
+          <input type="number" id="product-price" name="price" min="1" step="0.5" required>
+
+          <label for="product-stock">Opening stock</label>
+          <input type="number" id="product-stock" name="stock" min="0" step="1" value="0">
+
+          <label for="product-reorder">Reorder level</label>
+          <input type="number" id="product-reorder" name="reorder" min="0" step="1" value="0">
+
+          <button type="submit">Add product</button>
+          <p id="product-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+      </div>
+
+      <section id="edit-section" hidden>
+        <h2>Edit product</h2>
+        <form id="edit-form">
+          <label for="edit-name">Name</label>
+          <input type="text" id="edit-name" name="name" maxlength="100" required>
+
+          <label for="edit-category">Category</label>
+          <select id="edit-category" name="category" required></select>
+
+          <label for="edit-price">Unit price (Ksh)</label>
+          <input type="number" id="edit-price" name="price" min="1" step="0.5" required>
+
+          <button type="submit">Save changes</button>
+          <button type="button" id="edit-close" class="plain">Close</button>
+          <p id="edit-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Products</h2>
+        <p id="list-message" class="message" aria-live="polite"></p>
+        <div class="table-scroll">
+          <table>
+            <caption>Active products</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Category</th>
+                <th scope="col" class="num">Price</th>
+                <th scope="col" class="num">In stock</th>
+                <th scope="col">Reorder level</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <h2>Notes</h2>
+      <ul>
+        <li>Past sales keep the price they were sold at.</li>
+        <li>A deactivated product disappears from the sales and stock-in forms. Its history is kept.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>DukaTrack, demand forecasting for small Kenyan dukas.</p>
+      <p>Site built by Jenn and Ismacil Abdi, DBIT, Strathmore University, 2026.</p>
+    </footer>
+
+</body>
+</html>
